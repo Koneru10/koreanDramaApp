@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thriller Movies - Dramystic</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/7/72/BTS_logo.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+      background-color: #191970; /* Midnight Blue */
+      color: white;
+      min-height: 100vh;
+      padding-bottom: 100px;
+    }
+    header {
+      background: #FF69B4; /* Pink */
+      padding: 0.5rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .title {
+      font-size: 2rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .title img {
+      height: 100px;
+      width: auto;
+    }
+    nav {
+      width: 100%;
+      text-align: center;
+      background-color: #E6E6FA; /* Lavender */
+      font-size: 64px;
+    }
+    nav a {
+      color: #191970;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.3rem;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .drama-grid {
+      padding: 2rem;
+      margin: 1rem auto;
+      width: 90%;
+      max-width: 1200px;
+      margin-bottom: 100px;
+    }
+    .drama-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    .drama {
+      padding: 1rem;
+      border-radius: 10px;
+      text-align: center;
+      background-color: #E6E6FA;
+      color: #191970;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .drama:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+    .drama img {
+      width: 100%;
+      border-radius: 8px;
+      height: 200px;
+      object-fit: cover;
+    }
+    .drama h3 {
+      margin: 1rem 0 0.5rem;
+      font-size: 1.2rem;
+    }
+    .drama p {
+      margin: 0.5rem 0;
+      font-size: 0.9rem;
+    }
+    .drama-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(25,25,112,0.92);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+      padding: 1rem;
+      text-align: center;
+    }
+    .drama:hover .drama-overlay {
+      opacity: 1;
+    }
+    .watch-now-btn {
+      margin-top: 1rem;
+      background: #FF69B4;
+      color: #fff;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 25px;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+      display: inline-block;
+    }
+    .watch-now-btn:hover {
+      background: #E6E6FA;
+      color: #191970;
+    }
+    .footer {
+      background-color: #FF69B4;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="title">
+      Dramystic
+      <img src="images/Saranghe.jpg" alt="Logo">
+    </div>
+  </header>
+  <nav>
+    <a href="code.html">Home</a>
+    <a href="korean_dramas.html">Korean Dramas</a>
+    <a href="chinese_dramas.html">Chinese Dramas</a>
+    <a href="Thriller-movies.html">Thriller Movies</a>
+  </nav>
+  <div class="drama-grid">
+    <h2>Popular Thriller Movies</h2>
+    <div class="drama-list">
+      <div class="drama">
+        <img src="C:\Users\K Chandraja\OneDrive\Desktop\kdrama_lovers_site\Dark.jpeg" alt="Dark">
+        <h3>Dark</h3>
+        <p>Episodes: 26</p>
+        <p>Genre: Sci-Fi, Thriller</p>
+        <div class="drama-overlay">
+          <div>
+            <strong>Description:</strong>
+            <p>A sci-fi thriller exploring time travel and family secrets.</p>
+            <a class="watch-now-btn" href="https://www.netflix.com/title/80100172" target="_blank">Watch Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="drama">
+        <img src="C:\Users\K Chandraja\OneDrive\Desktop\kdrama_lovers_site\gone girl.jpeg" alt="Gone Girl">
+        <h3>Gone Girl</h3>
+        <p>Duration: 2h 29m</p>
+        <p>Genre: Mystery, Thriller</p>
+        <div class="drama-overlay">
+          <div>
+            <strong>Description:</strong>
+            <p>A thrilling mystery about a missing wife and media frenzy.</p>
+            <a class="watch-now-btn" href="https://www.amazon.com/Gone-Girl-Ben-Affleck/dp/B00O4B3BDG" target="_blank">Watch Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="drama">
+        <img src="C:\Users\K Chandraja\OneDrive\Desktop\kdrama_lovers_site\gravity.jpeg" alt="Gravity">
+        <h3>Gravity</h3>
+        <p>Duration: 1h 31m</p>
+        <p>Genre: Sci-Fi, Thriller</p>
+        <div class="drama-overlay">
+          <div>
+            <strong>Description:</strong>
+            <p>A survival story set in space after disaster strikes.</p>
+            <a class="watch-now-btn" href="https://www.netflix.com/title/70275518" target="_blank">Watch Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="drama">
+        <img src="C:\Users\K Chandraja\OneDrive\Desktop\kdrama_lovers_site\Inception.jpeg" alt="Inception">
+        <h3>Inception</h3>
+        <p>Duration: 2h 28m</p>
+        <p>Genre: Sci-Fi, Thriller</p>
+        <div class="drama-overlay">
+          <div>
+            <strong>Description:</strong>
+            <p>A heist within dreams led by a skilled thief.</p>
+            <a class="watch-now-btn" href="https://www.netflix.com/title/70131314" target="_blank">Watch Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="drama">
+        <img src="C:\Users\K Chandraja\OneDrive\Desktop\kdrama_lovers_site\parasite.jpeg" alt="Parasite">
+        <h3>Parasite</h3>
+        <p>Duration: 2h 12m</p>
+        <p>Genre: Thriller, Drama</p>
+        <div class="drama-overlay">
+          <div>
+            <strong>Description:</strong>
+            <p>A dark comedy thriller about class divide.</p>
+            <a class="watch-now-btn" href="https://www.hulu.com/movie/parasite" target="_blank">Watch Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="drama">
+        <img src="C:\Users\K Chandraja\OneDrive\Desktop\kdrama_lovers_site\stranger things.jpeg" alt="Stranger Things">
+        <h3>Stranger Things</h3>
+        <p>Episodes: 34</p>
+        <p>Genre: Sci-Fi, Horror</p>
+        <div class="drama-overlay">
+          <div>
+            <strong>Description:</strong>
+            <p>A supernatural series set in the 80s.</p>
+            <a class="watch-now-btn" href="https://www.netflix.com/title/80057281" target="_blank">Watch Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="drama">
+        <img src="C:\Users\K Chandraja\OneDrive\Desktop\kdrama_lovers_site\the prestiage.jpeg" alt="The Prestige">
+        <h3>The Prestige</h3>
+        <p>Duration: 2h 10m</p>
+        <p>Genre: Mystery, Thriller</p>
+        <div class="drama-overlay">
+          <div>
+            <strong>Description:</strong>
+            <p>Two magicians battle in a dark rivalry.</p>
+            <a class="watch-now-btn" href="https://www.hulu.com/movie/the-prestige" target="_blank">Watch Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="drama">
+        <img src="C:\Users\K Chandraja\OneDrive\Desktop\kdrama_lovers_site\Wednesday.jpeg" alt="Wednesday">
+        <h3>Wednesday</h3>
+        <p>Episodes: 8</p>
+        <p>Genre: Mystery, Comedy</p>
+        <div class="drama-overlay">
+          <div>
+            <strong>Description:</strong>
+            <p>Wednesday Addams solves mysteries at her new school.</p>
+            <a class="watch-now-btn" href="https://www.netflix.com/title/81231974" target="_blank">Watch Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    <p>&copy; 2024 Dramystic. All rights reserved.</p>
+  </footer>
+</body>
+</html>

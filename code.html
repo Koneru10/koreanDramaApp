@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dramystic </title>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #191970; /* Midnight Blue */
+      color: white;
+      min-height: 100vh;
+      padding-bottom: 60px;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: linear-gradient(to right, #E6E6FA, #FFB6C1);
+      padding: 0.8rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .title {
+      font-size: 2rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      color: #191970;
+      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+    }
+
+    .title img {
+      height: 90px;
+      width: auto;
+    }
+
+    .navi {
+      width: 100%;
+      text-align: center;
+      background-color: #E6E6FA;
+      padding: 1.2rem 0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin-top: 100px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0.5rem 0;
+    }
+
+    nav a {
+      color: #191970;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      padding: 0.8rem 2rem;
+      border-radius: 25px;
+      background: rgba(255, 255, 255, 0.5);
+      border: 2px solid transparent;
+      line-height: 1.2;
+    }
+
+    nav a:hover {
+      color: #FFB6C1;
+      background: rgba(255, 255, 255, 0.8);
+      border-color: #FFB6C1;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .top-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .top-right input[type="text"] {
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: 1px solid #E6E6FA; /* Lavender border */
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    .top-right button {
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 5px;
+      background-color: #191970; /* Midnight Blue */
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .top-right button:hover {
+      background-color: #FFB6C1; /* Pink */
+    }
+
+    .welcome-section {
+      background-color: rgba(230, 230, 250, 0.1);
+      padding: 1rem;
+      margin: 0.5rem auto;
+      margin-top: 90px;
+      width: 95%;
+      max-width: 1200px;
+      border-radius: 15px;
+      text-align: center;
+      border: 1px solid #E6E6FA;
+      box-shadow: 0 4px 15px rgba(230, 230, 250, 0.2);
+    }
+
+    .korean-text {
+      font-family: 'Nanum Gothic', sans-serif;
+      margin: 1rem 0;
+    }
+
+    .content {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+
+    .footer {
+      background: linear-gradient(to right, #191970, #FFB6C1);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .footer h3 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+
+    .footer p {
+      margin: 0.3rem 0 0 0;
+      font-size: 0.9rem;
+    }
+
+    .feature-box {
+      background: rgba(230, 230, 250, 0.15);
+      border-radius: 10px;
+      padding: 1rem;
+      margin: 0.5rem 0;
+      border: 1px solid rgba(230, 230, 250, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .feature-box:hover {
+      transform: translateY(-5px);
+    }
+
+    .feature-box h3 {
+      color: #FFB6C1;
+      margin-bottom: 1rem;
+    }
+
+    .feature-box p {
+      margin: 0.5rem 0;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 0.6rem 1rem;
+      }
+
+      .title {
+        font-size: 1.8rem;
+      }
+      
+      .title img {
+        height: 70px;
+      }
+
+      .navi {
+        margin-top: 90px;
+        padding: 1rem 0;
+      }
+
+      .welcome-section {
+        margin-top: 80px;
+      }
+
+      .footer {
+        padding: 0.8rem;
+      }
+
+      .content {
+        grid-template-columns: 1fr;
+      }
+      
+      nav {
+        gap: 1rem;
+        padding: 0.3rem 0;
+      }
+      
+      nav a {
+        font-size: 1rem;
+        padding: 0.6rem 1.5rem;
+      }
+    }
+  </style>
+
+  <script>
+    function searchDramas() {
+      const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+      const sections = document.querySelectorAll('.welcome-section');
+      sections.forEach(section => {
+        const text = section.textContent.toLowerCase();
+        section.style.display = text.includes(searchTerm) ? 'block' : 'none';
+      });
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="title">
+      Dramystic 
+      <img src="images/Saranghe.jpg" alt="K-drama Logo">
+    </div>
+    <div class="top-right">
+      <input type="text" id="searchInput" placeholder="Search dramas..." onkeyup="searchDramas()">
+      <a href="login.html" style="text-decoration: none;"><button>Login</button></a>
+    </div>
+  </header>
+
+  <div class="navi">
+    <nav>
+      <a href="korean_dramas.html">Korean Dramas</a>
+      <a href="chinese_dramas.html">Chinese Dramas</a>
+      <a href="Thriller-movies.html">Thriller Movies</a>
+    </nav>
+  </div>
+
+  <div class="welcome-section">
+    <h2>🌟 Welcome to drama Lovers 🌟</h2>
+    <h3 class="korean-text">케이드라마 러버스에 오신 것을 환영합니다</h3>
+    
+    <div class="content">
+      <div class="feature-box">
+        <h3>🎬 Discover Amazing Stories</h3>
+        <p>Experience the magic of Korean dramas where every story brings a new adventure.</p>
+        <p class="korean-text">매 순간 새로운 모험을 선사하는 한국 드라마의 마법을 경험하세요.</p>
+      </div>
+
+      <div class="feature-box">
+        <h3>💝 Why Korean Dramas?</h3>
+        <p>✨ Unique Storytelling</p>
+        <p>🎥 Beautiful Cinematography</p>
+        <p>👥 Memorable Characters</p>
+        <p class="korean-text">독특한 스토리텔링, 아름다운 영상미, 잊을 수 없는 캐릭터들</p>
+      </div>
+
+      <div class="feature-box">
+        <h3>🎯 Start Your Journey</h3>
+        <p>Explore our collection of handpicked dramas and find your next favorite!</p>
+        <p class="korean-text">엄선된 드라마 컬렉션에서 당신의 다음 최애 작품을 찾아보세요!</p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <h3>K-drama Lovers</h3>
+      <p>&copy; 2024 K-drama Lovers. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chinese Dramas - Dramystic</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/7/72/BTS_logo.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+      background-color: #191970; /* Midnight Blue */
+      color: white;
+      min-height: 100vh;
+      padding-bottom: 100px;
+    }
+    header {
+      background: #FF69B4; /* Pink */
+      padding: 0.5rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .title {
+      font-size: 2rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .title img {
+      height: 100px;
+      width: auto;
+    }
+    nav {
+      width: 100%;
+      text-align: center;
+      background-color: #E6E6FA; /* Lavender */
+      font-size: 64px;
+    }
+    nav a {
+      color: #191970;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.3rem;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .drama-grid {
+      padding: 2rem;
+      margin: 1rem auto;
+      width: 90%;
+      max-width: 1200px;
+      margin-bottom: 100px;
+    }
+    .drama-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    .drama {
+      padding: 1rem;
+      border-radius: 10px;
+      text-align: center;
+      background-color: #E6E6FA;
+      color: #191970;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .drama:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+    .drama img {
+      width: 100%;
+      border-radius: 8px;
+      height: 200px;
+      object-fit: cover;
+    }
+    .drama h3 {
+      margin: 1rem 0 0.5rem;
+      font-size: 1.2rem;
+    }
+    .drama p {
+      margin: 0.5rem 0;
+      font-size: 0.9rem;
+    }
+    .drama-info {
+      margin-top: 1rem;
+    }
+    .drama-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(25,25,112,0.92);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+      padding: 1rem;
+      text-align: center;
+    }
+    .drama:hover .drama-overlay {
+      opacity: 1;
+    }
+    .watch-now-btn {
+      margin-top: 1rem;
+      background: #FF69B4;
+      color: #fff;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 25px;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+      display: inline-block;
+    }
+    .watch-now-btn:hover {
+      background: #E6E6FA;
+      color: #191970;
+    }
+    .footer {
+      background-color: #FF69B4;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+    .footer h3 {
+      margin: 0.3rem 0;
+      font-size: 1.2rem;
+    }
+    .footer p {
+      margin: 0.3rem 0;
+    }
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .top-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .top-right input[type="text"] {
+      padding: 0.8rem;
+      border-radius: 25px;
+      border: 2px solid #E6E6FA;
+      width: 250px;
+      font-size: 1rem;
+      background-color: rgba(255, 255, 255, 0.9);
+      transition: all 0.3s ease;
+    }
+    .top-right input[type="text"]:focus {
+      outline: none;
+      border-color: #191970;
+      box-shadow: 0 0 10px rgba(230, 230, 250, 0.5);
+    }
+    .top-right button {
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 25px;
+      background-color: #191970;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .top-right button:hover {
+      background-color: #E6E6FA;
+      color: #191970;
+      transform: scale(1.05);
+    }
+  </style>
+  <script>
+    function searchDramas() {
+      const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+      const dramas = document.querySelectorAll('.drama');
+      dramas.forEach(drama => {
+        const title = drama.querySelector('h3').textContent.toLowerCase();
+        const info = drama.querySelector('.drama-info').textContent.toLowerCase();
+        if (title.includes(searchTerm) || info.includes(searchTerm)) {
+          drama.style.display = 'block';
+        } else {
+          drama.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="title">
+      Dramystic 
+      <img src="images/Saranghe.jpg" alt="K-drama Logo">
+    </div>
+    <div class="top-right">
+      <input type="text" id="searchInput" placeholder="Search dramas..." onkeyup="searchDramas()">
+      <a href="login.html" style="text-decoration: none;"><button>Login</button></a>
+    </div>
+  </header>
+  <nav>
+    <a href="code.html">Home</a>
+    <a href="korean_dramas.html">Korean Dramas</a>
+    <a href="chinese_dramas.html">Chinese Dramas</a>
+    <a href="Thriller-movies.html">Thriller Movies</a>
+  </nav>
+  <div class="drama-grid">
+    <h2>Popular Chinese Dramas</h2>
+    <div class="drama-list">
+      <div class="drama">
+        <img src="C:\Users\K Chandraja\OneDrive\Desktop\kdrama_lovers_site\Ashes of love.jpeg" alt="Ashes of Love">
+        <div class="drama-info">
+          <h3>Ashes of Love</h3>
+          <p>Episodes: 63</p>
+          <p>Genre: Fantasy, Romance, Drama</p>
+          <p>Year: 2018</p>
+        </div>
+        <div class="drama-overlay">
+          <div>
+            <strong>Description:</strong>
+            <p>A love story between the Flower Goddess's daughter and the Heavenly Emperor's second son. Jin Mi is forbidden from experiencing love, yet becomes entangled in a love triangle between two powerful deities.</p>
+            <a class="watch-now-btn" href="https://www.netflix.com/title/81200228" target="_blank">Watch Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="drama">
+        <img src="C:\Users\K Chandraja\OneDrive\Desktop\kdrama_lovers_site\eternal love.jpeg" alt="Eternal Love">
+        <div class="drama-info">
+          <h3>Eternal Love</h3>
+          <p>Episodes: 58</p>
+          <p>Genre: Fantasy, Romance, Drama</p>
+          <p>Year: 2017</p>
+        </div>
+        <div class="drama-overlay">
+          <div>
+            <strong>Description:</strong>
+            <p>The love story of Bai Qian, a goddess, and Ye Hua, a crown prince, spanning three lifetimes and worlds.</p>
+            <a class="watch-now-btn" href="https://www.netflix.com/title/81076862" target="_blank">Watch Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="drama">
+        <img src="C:\Users\K Chandraja\OneDrive\Desktop\kdrama_lovers_site\falling into your smile.jpg" alt="Falling Into Your Smile">
+        <div class="drama-info">
+          <h3>Falling Into Your Smile</h3>
+          <p>Episodes: 31</p>
+          <p>Genre: Romance, E-sports, Youth</p>
+          <p>Year: 2021</p>
+        </div>
+        <div class="drama-overlay">
+          <div>
+            <strong>Description:</strong>
+            <p>A rookie female gamer joins an all-male e-sports team and finds love and friendship in the competitive world of gaming.</p>
+            <a class="watch-now-btn" href="https://www.netflix.com/title/81435608" target="_blank">Watch Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="drama">
+        <img src="C:\Users\K Chandraja\OneDrive\Desktop\kdrama_lovers_site\loveo2o.jpeg" alt="Love O2O">
+        <div class="drama-info">
+          <h3>Love O2O</h3>
+          <p>Episodes: 30</p>
+          <p>Genre: Romance, School, Gaming</p>
+          <p>Year: 2016</p>
+        </div>
+        <div class="drama-overlay">
+          <div>
+            <strong>Description:</strong>
+            <p>Two university students fall in love through an online game and discover their real-life connection.</p>
+            <a class="watch-now-btn" href="https://www.netflix.com/title/80117421" target="_blank">Watch Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="drama">
+        <img src="C:\Users\K Chandraja\OneDrive\Desktop\kdrama_lovers_site\Meteor_Garden.jpg" alt="Meteor Garden">
+        <div class="drama-info">
+          <h3>Meteor Garden</h3>
+          <p>Episodes: 49</p>
+          <p>Genre: Romance, Youth, School</p>
+          <p>Year: 2018</p>
+        </div>
+        <div class="drama-overlay">
+          <div>
+            <strong>Description:</strong>
+            <p>A poor but bright girl attends an elite school and stands up to the F4, a group of rich and handsome boys.</p>
+            <a class="watch-now-btn" href="https://www.netflix.com/title/81012087" target="_blank">Watch Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="drama">
+        <img src="C:\Users\K Chandraja\OneDrive\Desktop\kdrama_lovers_site\Theuntamed.jpg" alt="The Untamed">
+        <div class="drama-info">
+          <h3>The Untamed</h3>
+          <p>Episodes: 50</p>
+          <p>Genre: Xianxia, Adventure, Mystery</p>
+          <p>Year: 2019</p>
+        </div>
+        <div class="drama-overlay">
+          <div>
+            <strong>Description:</strong>
+            <p>Two soulmates uncover dark secrets in the cultivation world and fight for justice and peace.</p>
+            <a class="watch-now-btn" href="https://www.netflix.com/title/81050662" target="_blank">Watch Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="drama">
+        <img src="C:\Users\K Chandraja\OneDrive\Desktop\kdrama_lovers_site\when i fly towards you.jpeg" alt="When I Fly Towards You">
+        <div class="drama-info">
+          <h3>When I Fly Towards You</h3>
+          <p>Episodes: 24</p>
+          <p>Genre: Romance, Youth, School</p>
+          <p>Year: 2023</p>
+        </div>
+        <div class="drama-overlay">
+          <div>
+            <strong>Description:</strong>
+            <p>A cheerful girl and a quiet boy meet in high school and experience the ups and downs of first love.</p>
+            <a class="watch-now-btn" href="https://www.netflix.com/title/81618113" target="_blank">Watch Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="drama">
+        <img src="C:\Users\K Chandraja\OneDrive\Desktop\kdrama_lovers_site\word of honor.jpeg" alt="Word of Honor">
+        <div class="drama-info">
+          <h3>Word of Honor</h3>
+          <p>Episodes: 36</p>
+          <p>Genre: Wuxia, Mystery, Adventure</p>
+          <p>Year: 2021</p>
+        </div>
+        <div class="drama-overlay">
+          <div>
+            <strong>Description:</strong>
+            <p>Two men with troubled pasts form a deep bond as they journey through the martial arts world.</p>
+            <a class="watch-now-btn" href="https://www.netflix.com/title/81486372" target="_blank">Watch Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="footer-content">
+      <h3>K-drama Lovers</h3>
+      <p>&copy; 2024 K-drama Lovers. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

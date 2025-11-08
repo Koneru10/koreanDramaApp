@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>More Korean Dramas - Dramystic</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/7/72/BTS_logo.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+      background-color: #191970;
+      color: white;
+      min-height: 100vh;
+      padding-bottom: 100px;
+    }
+    header {
+      background: #FF69B4;
+      padding: 0.5rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .title {
+      font-size: 2rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .title img {
+      height: 100px;
+      width: auto;
+    }
+    nav {
+      width: 100%;
+      text-align: center;
+      background-color: #E6E6FA;
+      font-size: 64px;
+    }
+    nav a {
+      color: #191970;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.3rem;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .drama-grid {
+      padding: 2rem;
+      margin: 1rem auto;
+      width: 90%;
+      max-width: 1200px;
+      margin-bottom: 100px;
+    }
+    .drama-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    .drama {
+      padding: 1rem;
+      border-radius: 10px;
+      text-align: center;
+      background-color: #E6E6FA;
+      color: #191970;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .drama:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+    .drama img {
+      width: 100%;
+      border-radius: 8px;
+      height: 200px;
+      object-fit: cover;
+    }
+    .drama h3 {
+      margin: 1rem 0 0.5rem;
+      font-size: 1.2rem;
+    }
+    .drama p {
+      margin: 0.5rem 0;
+      font-size: 0.9rem;
+    }
+    .drama-info {
+      margin-top: 1rem;
+    }
+    .drama-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(25,25,112,0.92);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+      padding: 1rem;
+      text-align: center;
+    }
+    .drama:hover .drama-overlay {
+      opacity: 1;
+    }
+    .watch-now-btn {
+      margin-top: 1rem;
+      background: #FF69B4;
+      color: #fff;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 25px;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+      display: inline-block;
+    }
+    .watch-now-btn:hover {
+      background: #E6E6FA;
+      color: #191970;
+    }
+    .footer {
+      background-color: #FF69B4;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+    .footer h3 {
+      margin: 0.3rem 0;
+      font-size: 1.2rem;
+    }
+    .footer p {
+      margin: 0.3rem 0;
+    }
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="title">
+      Dramystic 
+      <img src="images/Saranghe.jpg" alt="K-drama Logo">
+    </div>
+  </header>
+  <nav>
+    <a href="code.html">Home</a>
+    <a href="korean_dramas.html">Korean Dramas</a>
+    <a href="chinese_dramas.html">Chinese Dramas</a>
+    <a href="Thriller-movies.html">Thriller Movies</a>
+  </nav>
+  <div class="drama-grid">
+    <h2>More Korean Dramas</h2>
+    <div class="drama-list">
+      <div class="drama">
+        <img src="images/itaewon_class.jpg" alt="Itaewon Class">
+        <div class="drama-info">
+          <h3>Itaewon Class</h3>
+          <p>Episodes: 16</p>
+          <p>Genre: Drama, Business</p>
+          <p>Year: 2020</p>
+        </div>
+        <div class="drama-overlay">
+          <div>
+            <strong>Description:</strong>
+            <p>A group of young people fight for their dreams and justice by opening a bar in Itaewon.</p>
+            <a class="watch-now-btn" href="https://www.youtube.com/results?search_query=itaewon+class+kdrama" target="_blank">Watch Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="drama">
+        <img src="images/my_love_from_the_star.jpg" alt="My Love from the Star">
+        <div class="drama-info">
+          <h3>My Love from the Star</h3>
+          <p>Episodes: 21</p>
+          <p>Genre: Romance, Fantasy</p>
+          <p>Year: 2013</p>
+        </div>
+        <div class="drama-overlay">
+          <div>
+            <strong>Description:</strong>
+            <p>An alien who landed on Earth 400 years ago falls in love with a famous actress in modern-day Seoul.</p>
+            <a class="watch-now-btn" href="https://www.youtube.com/results?search_query=my+love+from+the+star+kdrama" target="_blank">Watch Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="drama">
+        <img src="images/hotel_del_luna.jpg" alt="Hotel Del Luna">
+        <div class="drama-info">
+          <h3>Hotel Del Luna</h3>
+          <p>Episodes: 16</p>
+          <p>Genre: Fantasy, Romance</p>
+          <p>Year: 2019</p>
+        </div>
+        <div class="drama-overlay">
+          <div>
+            <strong>Description:</strong>
+            <p>The manager of a mystical hotel for ghosts falls in love with its beautiful but cursed owner.</p>
+            <a class="watch-now-btn" href="https://www.youtube.com/results?search_query=hotel+del+luna+kdrama" target="_blank">Watch Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="drama">
+        <img src="images/kingdom.jpg" alt="Kingdom">
+        <div class="drama-info">
+          <h3>Kingdom</h3>
+          <p>Episodes: 12</p>
+          <p>Genre: Historical, Horror, Thriller</p>
+          <p>Year: 2019</p>
+        </div>
+        <div class="drama-overlay">
+          <div>
+            <strong>Description:</strong>
+            <p>A crown prince investigates a mysterious plague that turns people into zombies in Joseon-era Korea.</p>
+            <a class="watch-now-btn" href="https://www.youtube.com/results?search_query=kingdom+kdrama" target="_blank">Watch Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="footer-content">
+      <h3>K-drama Lovers</h3>
+      <p>&copy; 2024 K-drama Lovers. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html> 
